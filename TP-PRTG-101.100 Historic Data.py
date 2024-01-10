@@ -12,11 +12,11 @@
 #
 import requests
 
-api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.json?id=3007&avg=60&sdate=2024-01-10-15-00-00&edate=2024-01-10-16-00-00&usecaption=1'
+api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.xml?id=3007&avg=60&sdate=2024-01-10-15-00-00&edate=2024-01-10-16-00-00'
 api_token = '7W3Y4SO3EXLMPGU3TGP5H3W46FFWCY2UJJBQ3HU7PA======'
 
-#/api/historicdata.json?id=3007&avg=60&sdate=2024-01-10-15-00-00&edate=2024-01-10-16-00-00&usecaption=1
-#api/historicdata.xml?id=3007&avg=60&sdate=2024-01-10-15-00-00&edate=2024-01-10-16-00-00
+#/api/historicdata.json?id=3007&avg=60&sdate=2024-01-10-15-00-00&edate=2024-01-10-16-00-00&usecaption=1   //  json formate
+#api/historicdata.xml?id=3007&avg=60&sdate=2024-01-10-15-00-00&edate=2024-01-10-16-00-00     // xml formate
 # Define parameters for the API call
 params = {
     
@@ -31,6 +31,11 @@ if response.status_code == 200:
     print("Request successful!")
     print("Response:")
     print(response.text)
+    file_path = "C:/prtg/output.xml"
+    if isinstance(response, str):
+        with open(file_path, "w") as file:
+            file.write(response)
+        print(f"XML data saved to {file_path}") 
     
 else:
     print(f"Error: {response.status_code} - {response.text}")
