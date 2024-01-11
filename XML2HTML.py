@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 # Specify the file path where your XML data is stored
-xml_file_path = "C:/prtg/response.xml"
+xml_file_path = "C:/prtg/SYSLOG.xml"
 
 # Read XML data from the file
 try:
