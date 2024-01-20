@@ -1,0 +1,68 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Fetching Page</title>
+</head>
+<body>
+
+<h1>Data Fetching Page</h1>
+
+<form id="dataForm">
+    <label for="sensorId">Sensor ID:</label>
+    <select id="sensorId" name="sensorId">
+        <option value="10108">10108</option>
+        <!-- Add more options if needed -->
+    </select>
+
+    <label for="startDate">Start Date and Time:</label>
+    <input type="datetime-local" id="startDate" name="startDate" required>
+
+    <label for="endDate">End Date and Time:</label>
+    <input type="datetime-local" id="endDate" name="endDate" required>
+
+    <button type="button" onclick="fetchData()">Submit</button>
+</form>
+
+<!-- New label to display the output -->
+<label for="outputLabel">Output:</label>
+<div id="output">
+    <!-- Display fetched data here -->
+</div>
+
+<script>
+    function fetchData() {
+        // Get selected values from dropdowns
+        var sensorId = document.getElementById("sensorId").value;
+        var startDate = document.getElementById("startDate").value;
+        var endDate = document.getElementById("endDate").value;
+
+        // Construct API endpoint with selected values
+        var apiEndpoint = `/fetch_data`;
+
+        // Make the API request using fetch
+        fetch(apiEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'sensorId': sensorId,
+                'startDate': startDate,
+                'endDate': endDate
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the output div
+                document.getElementById("output").innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+</body>
+</html>
