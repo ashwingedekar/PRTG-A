@@ -1,9 +1,10 @@
+# app.py
+
 from flask import Flask, render_template, request, jsonify
 import requests
 import pandas as pd
 from io import StringIO
 from datetime import datetime
-import os
 
 app = Flask(__name__)
 
@@ -38,21 +39,17 @@ def fetch_data():
             # Use pandas to read the CSV data
             df = pd.read_csv(StringIO(response.text))
 
-            # Save the entire dataset to a CSV file in the specified location
-            output_location = f"C:/prtg/output_{start_date_str}.csv"
-            df.to_csv(output_location, index=False)
+            # Find the row with the maximum "Traffic Total (Speed)(RAW)"
+            max_speed_row = df.loc[df["Traffic Total (Speed)(RAW)"].idxmax()]
 
-            # Find the row with the maximum "Traffic Total (Volume)(RAW)"
-            max_volume_row = df.loc[df["Traffic Total (Volume)(RAW)"].idxmax()]
-
-            # Print the result in the terminal
+            # Prepare the result as a dictionary
             result_dict = {
                 "success": True,
-                "message": f"Data fetched successfully. Entire dataset saved at: {output_location}",
-                "max_volume_data": {
-                    "Date Time": max_volume_row["Date Time"],
-                    "Traffic Total (Volume)": max_volume_row["Traffic Total (Volume)"],
-                    "Traffic Total (Volume)(RAW)": max_volume_row["Traffic Total (Volume)(RAW)"]
+                "message": "Data fetched successfully.",
+                "max_speed_data": {
+                    "Date Time": max_speed_row["Date Time"],
+                    "Traffic Total (Speed)": max_speed_row["Traffic Total (Speed)"],
+                    "Traffic Total (Speed)(RAW)": max_speed_row["Traffic Total (Speed)(RAW)"]
                 }
             }
         else:
