@@ -19,9 +19,6 @@ def fetch_data():
         sensor_id = request.form['sensorId']
         start_date = request.form['startDate']
         end_date = request.form['endDate']
-        avg = request.form['avg']
-        username = request.form['username']
-        passhash = request.form['passhash']
 
         # Convert date-time strings to a datetime object
         start_datetime = datetime.strptime(start_date, '%Y-%m-%dT%H:%M')
@@ -32,7 +29,7 @@ def fetch_data():
         end_date_str = end_datetime.strftime('%Y-%m-%d-%H-%M-%S')
 
         # Construct API endpoint with form values
-        api_endpoint = f'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.csv?id={sensor_id}&avg={avg}&sdate={start_date_str}&edate={end_date_str}&username={username}&passhash={passhash}'
+        api_endpoint = f'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.csv?id={sensor_id}&avg=0&sdate={start_date_str}&edate={end_date_str}&username=Ashwin.Gedekar&passhash=3422185132'
 
         # Make the API request
         response = requests.get(api_endpoint)
