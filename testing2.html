@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request Form</title>
+</head>
+<body>
+    <h1>API Request Form</h1>
+    <form id="apiForm">
+        <label for="server">Select Server:</label>
+        <select id="server" name="server">
+            <option value="https://tp-prtg-101-100.comtelindia.com:10443">https://tp-prtg-101-100.comtelindia.com:10443</option>
+            <!-- Add more server options if needed -->
+        </select>
+        
+        <label for="endpoint">Select API Endpoint:</label>
+        <select id="endpoint" name="endpoint">
+            <option value="api/table.xml?content=devices">api/table.xml?content=devices</option>
+            <!-- Add more endpoint options if needed -->
+        </select>
+        
+        <label for="username">Username:</label>
+        <select id="username" name="username">
+            <option value="Ashwin.Gedekar">Ashwin.Gedekar</option>
+            <!-- Add more username options if needed -->
+        </select>
+        
+        <label for="passhash">Passhash:</label>
+        <select id="passhash" name="passhash">
+            <option value="1815236212">1815236212</option>
+            <!-- Add more passhash options if needed -->
+        </select>
+        
+        <button type="button" onclick="makeRequest()">Submit</button>
+    </form>
+    
+    <div id="responseContainer">
+        <!-- Response will be displayed here -->
+    </div>
+
+    <script>
+        function makeRequest() {
+            var server = document.getElementById("server").value;
+            var endpoint = document.getElementById("endpoint").value;
+            var username = document.getElementById("username").value;
+            var passhash = document.getElementById("passhash").value;
+            
+            var apiEndpoint = server + '/' + endpoint + '&username=' + username + '&passhash=' + passhash;
+            
+            // Make the API request
+            fetch(apiEndpoint)
+                .then(response => response.text())
+                .then(data => {
+                    // Display the response
+                    document.getElementById("responseContainer").innerText = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>

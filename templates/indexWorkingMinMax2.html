@@ -1,0 +1,136 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Fetching Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+        }
+
+        label, select, input, button {
+            margin: 5px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Data Fetching Page</h1>
+
+<form id="dataForm">
+    <label for="sensorId">Sensor ID:</label>
+    <select id="sensorId" name="sensorId">
+        <option value="10108">10108</option>
+        <!-- Add more options if needed -->
+    </select>
+
+    <label for="startDate">Start Date and Time:</label>
+    <input type="datetime-local" id="startDate" name="startDate" required>
+
+    <label for="endDate">End Date and Time:</label>
+    <input type="datetime-local" id="endDate" name="endDate" required>
+
+    <label for="avg">Average:</label>
+    <select id="avg" name="avg">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="passhash">Password Hash:</label>
+    <input type="text" id="passhash" name="passhash" required>
+
+    <label for="speedDataType">Speed Data Type:</label>
+    <select id="speedDataType" name="speedDataType">
+        <option value="max">Maximum Speed Data</option>
+        <option value="min">Minimum Speed Data</option>
+    </select>
+
+    <button type="button" onclick="fetchData()">Submit</button>
+</form>
+
+<!-- New label to display the output -->
+<label for="outputLabel">Output:</label>
+<div id="output">
+    <!-- Display fetched data here -->
+</div>
+
+<script>
+    function fetchData() {
+        // Get selected values from dropdowns
+        var sensorId = document.getElementById("sensorId").value;
+        var startDate = document.getElementById("startDate").value;
+        var endDate = document.getElementById("endDate").value;
+        var avg = document.getElementById("avg").value;
+        var username = document.getElementById("username").value;
+        var passhash = document.getElementById("passhash").value;
+        var speedDataType = document.getElementById("speedDataType").value;
+
+        // Construct API endpoint with selected values
+        var apiEndpoint = `/fetch_data`;
+
+        // Make the API request using fetch
+        fetch(apiEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'sensorId': sensorId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'avg': avg,
+                'username': username,
+                'passhash': passhash,
+                'speedDataType': speedDataType
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the output div
+                document.getElementById("output").innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+</body>
+</html>
