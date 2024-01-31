@@ -12,7 +12,7 @@
 #
 import requests
 
-api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.xml?id=5648&avg=0&sdate=2024-01-19-12-03-27&edate=2024-01-19-12-52-27&username=Ashwin.Gedekar&passhash=3422185132'
+api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/table.xml?content=sensortree&username=Ashwin.Gedekar&passhash=1815236212'
 
 #3422185132
 
@@ -25,7 +25,7 @@ if response.status_code == 200:
     print("Response:")
     print(response.text)
     
-    file_path = "C:/prtg/output.xml"
+    file_path = "C:/prtg/output55.xml"
     if isinstance(response.text, str):
         with open(file_path, "w") as file:
             file.write(response.text)

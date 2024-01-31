@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Fetching Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, select, input {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        select, input[type="datetime-local"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+
+        #output p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Data Fetching Page</h1>
+    <form id="dataForm">
+        <label for="sensorId">Sensor ID:</label>
+        <select id="sensorId" name="sensorId">
+            {% for sensor_id in sensor_ids %}
+            <option value="{{ sensor_id }}">{{ sensor_id }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="startDate">Start Date and Time:</label>
+        <input type="datetime-local" id="startDate" name="startDate" required>
+
+        <label for="endDate">End Date and Time:</label>
+        <input type="datetime-local" id="endDate" name="endDate" required>
+
+        <label for="avg">Average:</label>
+        <select id="avg" name="avg">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="passhash">Password Hash:</label>
+        <input type="text" id="passhash" name="passhash" required>
+
+        <label for="speedDataType">Speed Data Type:</label>
+        <select id="speedDataType" name="speedDataType">
+            <option value="max">Maximum Speed Data</option>
+            <option value="min">Minimum Speed Data</option>
+        </select>
+        <br>
+        <button type="button" onclick="fetchData()">Submit</button>
+    </form>
+
+    <div id="output">
+        <!-- Display fetched data here -->
+    </div>
+</div>
+
+<script>
+    function fetchData() {
+        var sensorId = document.getElementById("sensorId").value;
+        var startDate = document.getElementById("startDate").value;
+        var endDate = document.getElementById("endDate").value;
+        var avg = document.getElementById("avg").value;
+        var username = document.getElementById("username").value;
+        var passhash = document.getElementById("passhash").value;
+        var speedDataType = document.getElementById("speedDataType").value;
+
+        var apiEndpoint = `/fetch_data`;
+
+        fetch(apiEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'sensorId': sensorId,
+                'startDate': startDate,
+                'endDate': endDate,
+                'avg': avg,
+                'username': username,
+                'passhash': passhash,
+                'speedDataType': speedDataType
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                var outputDiv = document.getElementById("output");
+
+                if (data.success) {
+                    outputDiv.innerHTML = `
+                        <p>Date Time: ${data.min_speed_data ? data.min_speed_data['Date Time'] : data.max_speed_data['Date Time']}</p>
+                        <p>Traffic Total (Speed): ${data.min_speed_data ? data.min_speed_data['Traffic Total (Speed)'] : data.max_speed_data['Traffic Total (Speed)']}</p>
+                        <p>Traffic Total (Speed)(RAW): ${data.min_speed_data ? data.min_speed_data['Traffic Total (Speed)(RAW)'] : data.max_speed_data['Traffic Total (Speed)(RAW)']}</p>
+                        <p>Output Location: ${data.min_speed_data ? data.min_speed_data['output_location'] : data.max_speed_data['output_location']}</p>
+                        <p>Message: ${data.message}</p>
+                        <p>Success: ${data.success}</p>
+                    `;
+                } else {
+                    outputDiv.innerHTML = `
+                        <p>Error: ${data.message}</p>
+                        <p>Success: ${data.success}</p>
+                    `;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+</body>
+</html>
