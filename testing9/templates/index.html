@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Fetching Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, select, input {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        select, input[type="password"], input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+
+        #output h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        #output pre {
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.5;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+
+        #output p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Fetching Page</h1>
+        <form id="dataForm">
+            <label for="columnname">Column Name:</label>
+            <select id="columnname" name="columnname">
+                <option value="objid">Object ID</option>
+                <option value="type">Type</option>
+                <option value="name">Name</option>
+                <option value="downtimetime">Downtime Time</option>
+                <option value="uptime">Uptime</option>
+                <option value="sensor">Sensor</option>
+                <option value="probe">Probe</option>
+                <option value="status">Status</option>
+                <option value="message">Message</option>
+            </select>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="passhash">Password Hash:</label>
+            <input type="password" id="passhash" name="passhash" required>
+
+            <label for="sensorId">Sensor ID:</label>
+            <select id="sensorId" name="sensorId">
+                {% for sensor_id in sensor_ids %}
+                <option value="{{ sensor_id }}">{{ sensor_id }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="button" onclick="fetchData()">Fetch Data</button>
+        </form>
+
+        <div id="output">
+            <!-- Display fetched data here -->
+        </div>
+    </div>
+
+    <script>
+        function fetchData() {
+            var columnname = document.getElementById("columnname").value;
+            var username = document.getElementById("username").value;
+            var passhash = document.getElementById("passhash").value;
+            var sensorId = document.getElementById("sensorId").value;
+
+            var apiEndpoint = "/fetch_data";
+
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'columnname': columnname,
+                    'username': username,
+                    'passhash': passhash,
+                    'sensorId': sensorId
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    var outputDiv = document.getElementById("output");
+
+                    if (data.success) {
+                        outputDiv.innerHTML = `
+                            <h2>Data Fetched Successfully</h2>
+                            <pre>${data.data}</pre>
+                        `;
+                    } else {
+                        outputDiv.innerHTML = `
+                            <h2>Error Fetching Data</h2>
+                            <p>${data.message}</p>
+                        `;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
