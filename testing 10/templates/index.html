@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Fetching Page</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        select, button {
+            margin-bottom: 20px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Fetching Page</h1>
+        <form id="dataForm">
+            <label for="deviceid">Device ID:</label>
+            <select id="deviceid" name="deviceid">
+                {% for device_id in device_ids %}
+                <option value="{{ device_id }}">{{ device_id }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="button" onclick="fetchData()">Fetch Data</button>
+        </form>
+
+        <div id="output">
+            <!-- Output will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function fetchData() {
+            var deviceid = document.getElementById("deviceid").value;
+            var xhr = new XMLHttpRequest();
+            var url = "/fetch_data";
+            var params = "deviceid=" + deviceid;
+
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("output").innerHTML = xhr.responseText;
+                }
+            }
+            xhr.send(params);
+        }
+    </script>
+</body>
+</html>
