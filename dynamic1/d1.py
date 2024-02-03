@@ -3,10 +3,20 @@ import pandas as pd
 from io import StringIO
 
 # Read parameters from file
+with open("server_address.txt", "r") as file:
+    server_parameters = dict(line.strip().split("=") for line in file)
+
+server_address = server_parameters.get("server", "")  # Get the value associated with the key "server"
+print("Server address:", server_address)
+
+
 with open("parameters.txt", "r") as file:
     parameters = dict(line.strip().split("=") for line in file)
 
-api_endpoint = f'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.csv?id={parameters.get("id")}&avg={parameters.get("avg")}&sdate={parameters.get("sdate")}&edate={parameters.get("edate")}&username={parameters.get("username")}&passhash={parameters.get("passhash")}'
+with open("para.txt", "r") as file:
+    para = dict(line.strip().split("=") for line in file)    
+
+api_endpoint = f'https://{server_parameters.get("server")}/api/historicdata.csv?id={parameters.get("id")}&avg={parameters.get("avg")}&sdate={parameters.get("sdate")}&edate={parameters.get("edate")}&username={para.get("username")}&passhash={para.get("passhash")}'
 
 # Make the API request
 response = requests.get(api_endpoint)
