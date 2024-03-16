@@ -1,6 +1,6 @@
 import requests
 
-api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443//api/table.xml?content=sensors&columns=objid,group,device,sensor,status,message,lastvalue,priority,favorite&username=Ashwin.Gedekar&passhash=1815236212'
+api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/table.xml?content=sensors&columns=objid,group,device,sensor,status,message,lastvalue,priority,favorite&username=Ashwin.Gedekar&passhash=1815236212'
 
 # Make the API request
 response = requests.get(api_endpoint)

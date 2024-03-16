@@ -1,7 +1,0 @@
-id=10108
-avg=0
-sdate=2024-01-20-19-30-00
-edate=2024-01-20-20-54-00
-username=Ashwin.Gedekar
-passhash=1815236212
-    

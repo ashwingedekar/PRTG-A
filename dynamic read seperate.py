@@ -25,7 +25,7 @@ with open("max_min_flags.txt", "r") as file:
 max_flag = int(flags.get("max", 0))  # Get value for 'max', default to 0 if not found
 min_flag = int(flags.get("min", 0))  # Get value for 'min', default to 0 if not found
 # Build API endpoint
-api_endpoint = f'https://{server_parameters["server"]}/api/historicdata.csv?id={sensor_id["id"]}&avg={server_parameters["avg"]}&sdate={date_parameters["sdate"]}&edate={date_parameters["edate"]}&username={server_parameters["username"]}&passhash={server_parameters["passhash"]}'
+api_endpoint = f'https://{server_parameters["server"]}/api/historicdata.csv?id={sensor_id}&avg={server_parameters["avg"]}&sdate={date_parameters["sdate"]}&edate={date_parameters["edate"]}&username={server_parameters["username"]}&passhash={server_parameters["passhash"]}'
 
 # Make API request
 response = requests.get(api_endpoint)

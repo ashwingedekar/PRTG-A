@@ -12,33 +12,5 @@ response = requests.get(api_endpoint)
 if response.status_code == 200:
     print("Request successful!")
 
-    base_path = "C:/prtg/output.csv"
-    
-    try:
-        # Use pandas to read the CSV data
-        df = pd.read_csv(StringIO(response.text))
-
-        # Clean up the column names (remove leading and trailing spaces)
-        df.columns = df.columns.str.strip()
-
-        # Extract specified columns along with "Date Time"
-        selected_columns = ["Date Time", "Traffic Total (Speed)", "Traffic Total (Speed)(RAW)"]
-        selected_data = df[selected_columns]
-
-        # Check if the output file already exists
-        counter = 1
-        file_path = base_path
-        while os.path.exists(file_path):
-            file_path = f"C:/prtg/extracted_traffic_data_{counter}.csv"
-            counter += 1
-
-        # Save the extracted columns to the new CSV file
-        selected_data.to_csv(file_path, index=False)
-        
-        print(f"Extracted specified columns saved to {file_path}")
-    
-    except Exception as e:
-        print(f"Error processing CSV data: {e}")
-
 else:
     print(f"Error: {response.status_code} - {response.text}")

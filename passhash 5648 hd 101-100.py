@@ -12,7 +12,7 @@
 #
 import requests
 
-api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.xml?id=5648&avg=0&sdate=2024-01-08-00-00-00&edate=2024-01-09-00-00-00&username=Ashwin.Gedekar&passhash=3422185132'
+api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.xml?id=10017&avg=0&sdate=2024-02-09-15-15-00&edate=2024-02-09-15-30-00&username=Ashwin.Gedekar&passhash=1815236212'
 
 #3422185132
 
