@@ -33,3 +33,5 @@ for key, id_value in id_values.items():
         # print(f"Sensor details saved to {file_path}")
     else:
         print(f"Error for {key}: {response.status_code} - {response.text}")
+    
+    

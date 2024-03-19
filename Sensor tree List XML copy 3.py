@@ -1,4 +1,6 @@
+import csv
 import requests
+from tqdm import tqdm  # Import tqdm library
 
 # Read ID values from the file
 id_values = {}
@@ -12,7 +14,11 @@ with open("sensor_id.txt", "r") as file:
 # API endpoint template
 api_endpoint_template = 'https://tp-prtg-101-100.comtelindia.com:10443/api/getsensordetails.json?id={}&username=Ashwin.Gedekar&passhash=1132296586'
 
+# Create a list to store the data
+data = []
+
 # Iterate over each ID to make API requests
+progress_bar = tqdm(total=len(id_values), desc="Fetching limits for each ID")
 for key, id_value in id_values.items():
     # Construct the API endpoint URL using the ID value
     api_endpoint = api_endpoint_template.format(id_value)
@@ -26,7 +32,19 @@ for key, id_value in id_values.items():
         json_response = response.json()
         # Extract the value of the "parentdevicename" field
         parent_device_name = json_response["sensordata"]["parentdevicename"]
-        # Print ID value and corresponding device name
-        print(f" {parent_device_name}")
+        # Append ID value and corresponding device name to the data list
+        data.append((id_value, parent_device_name))
     else:
         print(f"Error for {key}: {response.status_code} - {response.text}")
+    progress_bar.update(1)
+
+progress_bar.close()
+# Write the data to a CSV file
+with open("outputssss.csv", "w", newline="") as csvfile:
+    csv_writer = csv.writer(csvfile)
+    # Write header row
+    csv_writer.writerow(["ID", "Device Name"])
+    # Write data rows
+    csv_writer.writerows(data)
+
+print("Output written to outputssss.csv")
