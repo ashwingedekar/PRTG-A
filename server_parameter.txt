@@ -1,0 +1,3 @@
+server=qnq-99-51.comtelindia.com:10443
+username=prtgadmin
+passhash=1132296586

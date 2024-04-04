@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 # Path to the XML file
-xml_file = 'prtg-101.100.xml'
+xml_file = '101.100_saturday.xml'
 
 # Parse the XML file
 tree = ET.parse(xml_file)

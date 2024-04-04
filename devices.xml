@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prtg>
+<prtg-version>24.1.90.1306+</prtg-version>
+<options><usertimezone><bias>-330</bias><standardbias>0</standardbias><daylightbias>-60</daylightbias><standarddatemonth>0</standarddatemonth><standarddatedayofweek>0</standarddatedayofweek><standarddateday>0</standarddateday><standarddatehour>0</standarddatehour><standarddateminute>0</standarddateminute><daylightdatemonth>0</daylightdatemonth><daylightdatedayofweek>0</daylightdatedayofweek><daylightdateday>0</daylightdateday><daylightdatehour>0</daylightdatehour><daylightdateminute>0</daylightdateminute></usertimezone><userdatesettings><shorttimeformat>hh:mm</shorttimeformat><longtimeformat>hh:mm:ss</longtimeformat><shortdateformat>dd/MM/yyyy</shortdateformat><longdateformat>dd MMMM yyyy</longdateformat><dateseparator>-</dateseparator><timeseparator>:</timeseparator></userdatesettings><graphs><live>120</live><graph1>2d|5m</graph1><graph2>30d|1h</graph2><graph3>365d|1d</graph3></graphs><sensortypes>"corestate=Core Health","corestateautonomous=Core Health (Autonomous)","paessler.fortigate.system_statistics_sensor.29=FortiGate System Statistics","paessler.redfish.power_supply_sensor.37=Redfish Power Supply","paessler.redfish.system_health_sensor.37=Redfish System Health","paessler.redfish.virtual_disk_sensor.37=Redfish Virtual Disk",ping=Ping,"probestate=Probe Health","snmpciscosystemhealth=SNMP Cisco System Health","snmpcpu=SNMP CPU Load","snmpcustom=SNMP Custom","snmpcustomadvanced=SNMP Custom Advanced","snmpcustomtable=SNMP Custom Table","snmpdellphysicaldisk=SNMP Dell PowerEdge Physical Disk","snmpdellsystemhealth=SNMP Dell PowerEdge System Health","snmpdiskfree=SNMP Disk Free","snmphpnetworkadapter=SNMP HPE ProLiant Network Interface","snmphpphysicaldisk=SNMP HPE ProLiant Physical Disk","snmphpsystemhealth=SNMP HPE ProLiant System Health","snmplinuxloadavg=SNMP Linux Load Average","snmplinuxmeminfo=SNMP Linux Meminfo","snmplinuxphysicaldisk=SNMP Linux Physical Disk","snmpmemory=SNMP Memory","snmptraffic=SNMP Traffic","snmpuptime=SNMP System Uptime",sntp=SNTP,"systemstate=System Health","udpsyslog=Syslog Receiver","udptrap=SNMP Trap Receiver","wmidiskspace=WMI Free Disk Space (Multi Disk)","wminetwork=Windows Network Card","wmiutctime=WMI UTC Time"</sensortypes><usedtags>autonomous,bandwidthsensor,bgp,ciscocpu,ciscofans,ciscomemory,ciscoother,ciscopowersupply,ciscoswitch,ciscotemperature,ciscovoltage,corehealthsensor,cpu,cpuloadsensor,dell,diskfree,diskspacesensor,firewall,fortigate,fortinet,fortios,hpe,logicaldisk,memory,memorysensor,peer,physicaldisk,pingsensor,powersupply,probehealthsensor,redfish,restsensor,snmp,snmpciscosystemhealthsensor,snmpcustomadvanced,snmpcustomsensor,snmpcustomtable,snmpdell,snmpdellphysicaldisksensor,snmpdellsystemhealthsensor,snmpdiskfreesensor,snmphpe,snmphpenetworkinterfacesensor,snmphpephysicaldisksensor,snmphpesystemhealthsensor,snmploadsensor,snmpmeminfosensor,snmpmemorysensor,snmpphysicaldisksensor,snmptrafficsensor,snmptrapsensor,snmpuptimesensor,sntpsensor,syslogsensor,systemhealth,systemhealthsensor,systemstatistics,vendors_Cisco,vendors_Dell,virtualdisk,virtualvolume,wmibandwidthsensor,wmidiskspacesensor,wmiutctimesensor</usedtags><tasks><autodisco>0</autodisco><histcalc>1</histcalc><correlationstatus>0</correlationstatus><correlationrunning>0</correlationrunning><autoupdate>1</autoupdate><maintenance>279</maintenance><trialdaysleft>365006</trialdaysleft><showchanneltab>0</showchanneltab><showfollowlinks>1</showfollowlinks><showfeedbacklinks>1</showfeedbacklinks><probeerrors>0</probeerrors><recommenderrunning>0</recommenderrunning></tasks></options>
+<sensortree><nodes><device id="5584"><summary>
+0,22,0,0,0,0,1,0</summary>
+<name>{cust-jp-10-100-11-214} (10.100.11.214) [Cisco-Nexus5548 Chassis] @Rack_03 [CDC-104]</name>
+<deviceicon>vendors_Cisco.png</deviceicon>
+<id>5584</id>
+<url>/device.htm?id=5584</url>
+<tags></tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>0</hascomment><host>10.100.11.214</host>
+<status_raw>3</status_raw>
+<active>true</active>
+<sensor id="5660"><name>Uptime</name>
+<id>5660</id>
+<url>/sensor.htm?id=5660</url>
+<tags>snmpuptimesensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>0</hascomment><sensortype>SNMP System Uptime</sensortype>
+<sensorkind>SNMPUptime</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>32 d </lastvalue>
+<lastvalue_raw>2824666.0000</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45374.4128595255</statussince_raw_utc>
+<lasttime_raw_utc>45386.3781211227</lasttime_raw_utc>
+<lastok_raw_utc>45386.3781211227</lastok_raw_utc>
+<lasterror_raw_utc>45302.1144933912</lasterror_raw_utc>
+<lastup_raw_utc>45386.3781211227</lastup_raw_utc>
+<lastdown_raw_utc>45206.5203537384</lastdown_raw_utc>
+<cumulateddowntime_raw>2491.15200033411</cumulateddowntime_raw>
+<cumulateduptime_raw>20355694.6300055</cumulateduptime_raw>
+<cumulatedsince_raw>45147.2362208333</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="5661"><name>Syslog Receiver</name>
+<id>5661</id>
+<url>/sensor.htm?id=5661</url>
+<tags>syslogsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>0</hascomment><sensortype>Syslog Receiver</sensortype>
+<sensorkind>UDPSyslog</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>0 #/s</lastvalue>
+<lastvalue_raw>0.0000</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45377.6823413079</statussince_raw_utc>
+<lasttime_raw_utc>45386.3781677778</lasttime_raw_utc>
+<lastok_raw_utc>45386.3781677778</lastok_raw_utc>
+<lasterror_raw_utc>0</lasterror_raw_utc>
+<lastup_raw_utc>45386.3781677778</lastup_raw_utc>
+<lastdown_raw_utc>45377.6816468403</lastdown_raw_utc>
+<cumulateddowntime_raw>779.96399954427</cumulateddowntime_raw>
+<cumulateduptime_raw>20372880.044</cumulateduptime_raw>
+<cumulatedsince_raw>45147.2369610069</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7583"><name>System Health CPU</name>
+<id>7583</id>
+<url>/sensor.htm?id=7583</url>
+<tags>ciscocpu cpuloadsensor snmpciscosystemhealthsensor systemhealth</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>0</hascomment><sensortype>SNMP Cisco System Health</sensortype>
+<sensorkind>SNMPCiscoSystemHealth</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>7 %</lastvalue>
+<lastvalue_raw>7.0000</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45374.4129400694</statussince_raw_utc>
+<lasttime_raw_utc>45386.3782136574</lasttime_raw_utc>
+<lastok_raw_utc>45386.3782136574</lastok_raw_utc>
+<lasterror_raw_utc>0</lasterror_raw_utc>
+<lastup_raw_utc>45386.3782136574</lastup_raw_utc>
+<lastdown_raw_utc>45332.5077922801</lastdown_raw_utc>
+<cumulateddowntime_raw>1380.20000027027</cumulateddowntime_raw>
+<cumulateduptime_raw>19580871.3799988</cumulateduptime_raw>
+<cumulatedsince_raw>45156.316448669</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7587"><name>System Health Other</name>
+<id>7587</id>
+<url>/sensor.htm?id=7587</url>
+<tags>ciscoother snmpciscosystemhealthsensor systemhealth</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>0</hascomment><sensortype>SNMP Cisco System Health</sensortype>
+<sensorkind>SNMPCiscoSystemHealth</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>-2,373 mdBm</lastvalue>
+<lastvalue_raw>-2373.0000</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45374.4126168287</statussince_raw_utc>
+<lasttime_raw_utc>45386.3778901389</lasttime_raw_utc>
+<lastok_raw_utc>45386.3778901389</lastok_raw_utc>
+<lasterror_raw_utc>0</lasterror_raw_utc>
+<lastup_raw_utc>45386.3778901389</lastup_raw_utc>
+<lastdown_raw_utc>45372.0312504861</lastdown_raw_utc>
+<cumulateddowntime_raw>12415.6990001444</cumulateddowntime_raw>
+<cumulateduptime_raw>19570082.3460004</cumulateduptime_raw>
+<cumulatedsince_raw>45156.4123625</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7586"><name>System Health Temperatures</name>
+<id>7586</id>
+<url>/sensor.htm?id=7586</url>
+<tags>ciscotemperature snmpciscosystemhealthsensor systemhealth</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>0</hascomment><sensortype>SNMP Cisco System Health</sensortype>
+<sensorkind>SNMPCiscoSystemHealth</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>50,132 m°C</lastvalue>
+<lastvalue_raw>50132.0000</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45386.0855561227</statussince_raw_utc>
+<lasttime_raw_utc>45386.3779130556</lasttime_raw_utc>
+<lastok_raw_utc>45386.3779130556</lastok_raw_utc>
+<lasterror_raw_utc>0</lasterror_raw_utc>
+<lastup_raw_utc>45386.3779130556</lastup_raw_utc>
+<lastdown_raw_utc>45386.0848617824</lastdown_raw_utc>
+<cumulateddowntime_raw>12239.2010004027</cumulateddowntime_raw>
+<cumulateduptime_raw>19569766.6359984</cumulateduptime_raw>
+<cumulatedsince_raw>45156.4137288657</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7584"><name>System Health Voltages</name>
+<id>7584</id>
+<url>/sensor.htm?id=7584</url>
+<tags>ciscovoltage snmpciscosystemhealthsensor systemhealth</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>0</hascomment><sensortype>SNMP Cisco System Health</sensortype>
+<sensorkind>SNMPCiscoSystemHealth</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>3,225 mV</lastvalue>
+<lastvalue_raw>3225.0000</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45382.8417377662</statussince_raw_utc>
+<lasttime_raw_utc>45386.3778446528</lasttime_raw_utc>
+<lastok_raw_utc>45386.3778446528</lastok_raw_utc>
+<lasterror_raw_utc>0</lasterror_raw_utc>
+<lastup_raw_utc>45386.3778446528</lastup_raw_utc>
+<lastdown_raw_utc>45382.8410422801</lastdown_raw_utc>
+<cumulateddowntime_raw>11608.9409992564</cumulateddowntime_raw>
+<cumulateduptime_raw>19570783.1439963</cumulateduptime_raw>
+<cumulatedsince_raw>45156.4150699306</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7588"><name>(436207616) SRV_10.100.31.11_vmNIC-6 Traffic</name>
+<id>7588</id>
+<url>/sensor.htm?id=7588</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>170 Mbit/s</lastvalue>
+<lastvalue_raw>21267809.3031</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45357.6959031018</statussince_raw_utc>
+<lasttime_raw_utc>45386.3779590046</lasttime_raw_utc>
+<lastok_raw_utc>45386.3779590046</lastok_raw_utc>
+<lasterror_raw_utc>45332.4589259491</lasterror_raw_utc>
+<lastup_raw_utc>45386.3779590046</lastup_raw_utc>
+<lastdown_raw_utc>45298.9640744444</lastdown_raw_utc>
+<cumulateddowntime_raw>3031.23399973847</cumulateddowntime_raw>
+<cumulateduptime_raw>19672937.4000008</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3172580903</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7589"><name>(436211712) SRV_10.100.31.12_vmNIC-6 Traffic</name>
+<id>7589</id>
+<url>/sensor.htm?id=7589</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>175 Mbit/s</lastvalue>
+<lastvalue_raw>21879241.2500</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45357.6961465625</statussince_raw_utc>
+<lasttime_raw_utc>45386.3781445255</lasttime_raw_utc>
+<lastok_raw_utc>45386.3781445255</lastok_raw_utc>
+<lasterror_raw_utc>45310.1520150116</lasterror_raw_utc>
+<lastup_raw_utc>45386.3781445255</lastup_raw_utc>
+<lastdown_raw_utc>45298.8135650579</lastdown_raw_utc>
+<cumulateddowntime_raw>3031.05300029274</cumulateddowntime_raw>
+<cumulateduptime_raw>19672671.3979981</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3172815394</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7590"><name>(436215808) SRV_10.100.31.13_vmNIC-6 Traffic</name>
+<id>7590</id>
+<url>/sensor.htm?id=7590</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>140 Mbit/s</lastvalue>
+<lastvalue_raw>17478700.1166</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45357.6966441898</statussince_raw_utc>
+<lasttime_raw_utc>45386.3780054282</lasttime_raw_utc>
+<lastok_raw_utc>45386.3780054282</lastok_raw_utc>
+<lasterror_raw_utc>45332.4589717708</lasterror_raw_utc>
+<lastup_raw_utc>45386.3780054282</lastup_raw_utc>
+<lastdown_raw_utc>45298.9641208333</lastdown_raw_utc>
+<cumulateddowntime_raw>3091.03999952786</cumulateddowntime_raw>
+<cumulateduptime_raw>19672941.3990015</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3173046644</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7591"><name>(436219904) SRV_10.100.31.14_vmNIC-6 Traffic</name>
+<id>7591</id>
+<url>/sensor.htm?id=7591</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>192 Mbit/s</lastvalue>
+<lastvalue_raw>24045312.7709</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45357.6964589005</statussince_raw_utc>
+<lasttime_raw_utc>45386.378514456</lasttime_raw_utc>
+<lastok_raw_utc>45386.378514456</lastok_raw_utc>
+<lasterror_raw_utc>45332.5087851968</lasterror_raw_utc>
+<lastup_raw_utc>45386.378514456</lastup_raw_utc>
+<lastdown_raw_utc>45298.8132404282</lastdown_raw_utc>
+<cumulateddowntime_raw>3151.14100123756</cumulateddowntime_raw>
+<cumulateduptime_raw>19673513.3179965</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3166333218</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7592"><name>(436224000) SRV_10.100.31.15_vmNIC-6 Traffic</name>
+<id>7592</id>
+<url>/sensor.htm?id=7592</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>291 Mbit/s</lastvalue>
+<lastvalue_raw>36350874.6159</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45357.6964357523</statussince_raw_utc>
+<lasttime_raw_utc>45386.3784912616</lasttime_raw_utc>
+<lastok_raw_utc>45386.3784912616</lastok_raw_utc>
+<lasterror_raw_utc>45343.7441211111</lasterror_raw_utc>
+<lastup_raw_utc>45386.3784912616</lastup_raw_utc>
+<lastdown_raw_utc>45298.8243298264</lastdown_raw_utc>
+<cumulateddowntime_raw>3211.17900037207</cumulateddowntime_raw>
+<cumulateduptime_raw>19673754.3819991</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3166564005</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7593"><name>(436228096) SRV_10.100.31.16_vmNIC-6 Traffic</name>
+<id>7593</id>
+<url>/sensor.htm?id=7593</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>169 Mbit/s</lastvalue>
+<lastvalue_raw>21150670.5618</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45357.8996765046</statussince_raw_utc>
+<lasttime_raw_utc>45386.3782601968</lasttime_raw_utc>
+<lastok_raw_utc>45386.3782601968</lastok_raw_utc>
+<lasterror_raw_utc>45357.8982989815</lasterror_raw_utc>
+<lastup_raw_utc>45386.3782601968</lastup_raw_utc>
+<lastdown_raw_utc>45357.8968987963</lastdown_raw_utc>
+<cumulateddowntime_raw>1058191.95999925</cumulateddowntime_raw>
+<cumulateduptime_raw>18617708.5150003</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3166792708</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7595"><name>(436236288) SRV_10.100.31.18 Traffic</name>
+<id>7595</id>
+<url>/sensor.htm?id=7595</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>229 Mbit/s</lastvalue>
+<lastvalue_raw>28679661.0667</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45335.4434756597</statussince_raw_utc>
+<lasttime_raw_utc>45386.3783066898</lasttime_raw_utc>
+<lastok_raw_utc>45386.3783066898</lastok_raw_utc>
+<lasterror_raw_utc>45332.5078850694</lasterror_raw_utc>
+<lastup_raw_utc>45386.3783066898</lastup_raw_utc>
+<lastdown_raw_utc>45318.5500647569</lastdown_raw_utc>
+<cumulateddowntime_raw>3750.70099916775</cumulateddowntime_raw>
+<cumulateduptime_raw>19672468.4470011</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3167266204</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7596"><name>(436240384) SRV_10.100.31.19 Traffic</name>
+<id>7596</id>
+<url>/sensor.htm?id=7596</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>110 Mbit/s</lastvalue>
+<lastvalue_raw>13810947.7580</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45357.6959961227</statussince_raw_utc>
+<lasttime_raw_utc>45386.3780517245</lasttime_raw_utc>
+<lastok_raw_utc>45386.3780517245</lastok_raw_utc>
+<lasterror_raw_utc>45318.5498105556</lasterror_raw_utc>
+<lastup_raw_utc>45386.3780517245</lastup_raw_utc>
+<lastdown_raw_utc>45318.5498105556</lastdown_raw_utc>
+<cumulateddowntime_raw>18030.8169994969</cumulateddowntime_raw>
+<cumulateduptime_raw>19657879.5540015</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3167490857</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7600"><name>(436289536) SW_10.201_Eth1/52 Traffic</name>
+<id>7600</id>
+<url>/sensor.htm?id=7600</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>117 Mbit/s</lastvalue>
+<lastvalue_raw>14648746.9412</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45366.7737502083</statussince_raw_utc>
+<lasttime_raw_utc>45386.3780286343</lasttime_raw_utc>
+<lastok_raw_utc>45386.3780286343</lastok_raw_utc>
+<lasterror_raw_utc>45302.1144087731</lasterror_raw_utc>
+<lastup_raw_utc>45386.3780286343</lastup_raw_utc>
+<lastdown_raw_utc>45331.3949331944</lastdown_raw_utc>
+<cumulateddowntime_raw>119649.413994374</cumulateddowntime_raw>
+<cumulateduptime_raw>19556606.945004</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3168418982</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7601"><name>(436293632) SW_10.202_Eth1/52 Traffic</name>
+<id>7601</id>
+<url>/sensor.htm?id=7601</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>158 Mbit/s</lastvalue>
+<lastvalue_raw>19706366.5611</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45366.7733105787</statussince_raw_utc>
+<lasttime_raw_utc>45386.3782833565</lasttime_raw_utc>
+<lastok_raw_utc>45386.3782833565</lastok_raw_utc>
+<lasterror_raw_utc>45332.5078634259</lasterror_raw_utc>
+<lastup_raw_utc>45386.3782833565</lastup_raw_utc>
+<lastdown_raw_utc>45331.3951878472</lastdown_raw_utc>
+<cumulateddowntime_raw>120187.301001535</cumulateddowntime_raw>
+<cumulateduptime_raw>19556075.6849979</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3168648032</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7602"><name>(436297728) SW_10.203_Eth1/52 Traffic</name>
+<id>7602</id>
+<url>/sensor.htm?id=7602</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>119 Mbit/s</lastvalue>
+<lastvalue_raw>14835195.1000</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45366.7732643634</statussince_raw_utc>
+<lasttime_raw_utc>45386.3782370949</lasttime_raw_utc>
+<lastok_raw_utc>45386.3782370949</lastok_raw_utc>
+<lasterror_raw_utc>45332.5079998727</lasterror_raw_utc>
+<lastup_raw_utc>45386.3782370949</lastup_raw_utc>
+<lastdown_raw_utc>45342.3700817361</lastdown_raw_utc>
+<cumulateddowntime_raw>7225.80099999905</cumulateddowntime_raw>
+<cumulateduptime_raw>19668652.1179988</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3168878704</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7603"><name>(436301824) SW_10.204_Eth1/52 Traffic</name>
+<id>7603</id>
+<url>/sensor.htm?id=7603</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>159 Mbit/s</lastvalue>
+<lastvalue_raw>19873085.8739</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45366.7733566667</statussince_raw_utc>
+<lasttime_raw_utc>45386.3783294444</lasttime_raw_utc>
+<lastok_raw_utc>45386.3783294444</lastok_raw_utc>
+<lasterror_raw_utc>45332.5079054282</lasterror_raw_utc>
+<lastup_raw_utc>45386.3783294444</lastup_raw_utc>
+<lastdown_raw_utc>45300.4749702199</lastdown_raw_utc>
+<cumulateddowntime_raw>7176.41300093383</cumulateddowntime_raw>
+<cumulateduptime_raw>19669270.395998</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3169109491</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7604"><name>(436305920) SW_10.205_Eth1/52 Traffic</name>
+<id>7604</id>
+<url>/sensor.htm?id=7604</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>133 Mbit/s</lastvalue>
+<lastvalue_raw>16604352.8009</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45366.7737037963</statussince_raw_utc>
+<lasttime_raw_utc>45386.3779820486</lasttime_raw_utc>
+<lastok_raw_utc>45386.3779820486</lastok_raw_utc>
+<lasterror_raw_utc>45332.45895</lasterror_raw_utc>
+<lastup_raw_utc>45386.3779820486</lastup_raw_utc>
+<lastdown_raw_utc>45300.4864009491</lastdown_raw_utc>
+<cumulateddowntime_raw>7411.963998992</cumulateddowntime_raw>
+<cumulateduptime_raw>19668647.4370014</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3169342014</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7605"><name>(436310016) SW_10.206_Eth1/52 Traffic</name>
+<id>7605</id>
+<url>/sensor.htm?id=7605</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>7</status_raw>
+<status>Paused</status>
+<datamode>0</datamode>
+<lastvalue>-</lastvalue>
+<lastvalue_raw></lastvalue_raw>
+<statusmessage>switch manually shutdown by sagar (Paused by Ratan Rawool on 09-01-2024 at 08:51:19 [GMT+0530])</statusmessage>
+<statussince_raw_utc>45300.1393638194</statussince_raw_utc>
+<lasttime_raw_utc>45300.1393638194</lasttime_raw_utc>
+<lastok_raw_utc>45300.1358916088</lastok_raw_utc>
+<lasterror_raw_utc>45300.1393638194</lasterror_raw_utc>
+<lastup_raw_utc>45300.1358916088</lastup_raw_utc>
+<lastdown_raw_utc>45300.1393638194</lastdown_raw_utc>
+<cumulateddowntime_raw>3315.6089999713</cumulateddowntime_raw>
+<cumulateduptime_raw>12351966.8980001</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3169586458</cumulatedsince_raw>
+<active>false</active>
+</sensor>
+<sensor id="7606"><name>(436322304) UPLINK_TO_99.252_Gi1/0/35 Traffic</name>
+<id>7606</id>
+<url>/sensor.htm?id=7606</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>2.86 Mbit/s</lastvalue>
+<lastvalue_raw>358010.6631</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45335.4440543171</statussince_raw_utc>
+<lasttime_raw_utc>45386.3781911227</lasttime_raw_utc>
+<lastok_raw_utc>45386.3781911227</lastok_raw_utc>
+<lasterror_raw_utc>45299.5340284375</lasterror_raw_utc>
+<lastup_raw_utc>45386.3781911227</lastup_raw_utc>
+<lastdown_raw_utc>45206.5202390741</lastdown_raw_utc>
+<cumulateddowntime_raw>2491.09999963548</cumulateddowntime_raw>
+<cumulateduptime_raw>19673190.0069996</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3169805324</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7607"><name>(436330496) SW_11.213_ETH1/31 Traffic</name>
+<id>7607</id>
+<url>/sensor.htm?id=7607</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>233 Mbit/s</lastvalue>
+<lastvalue_raw>29157493.1322</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45382.907246088</statussince_raw_utc>
+<lasttime_raw_utc>45386.378075081</lasttime_raw_utc>
+<lastok_raw_utc>45386.378075081</lastok_raw_utc>
+<lasterror_raw_utc>45302.1144445833</lasterror_raw_utc>
+<lastup_raw_utc>45386.378075081</lastup_raw_utc>
+<lastdown_raw_utc>45382.8086351852</lastdown_raw_utc>
+<cumulateddowntime_raw>417944.403996784</cumulateddowntime_raw>
+<cumulateduptime_raw>19257947.6770039</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3170036227</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+<sensor id="7608"><name>(436334592) SW_11.213_ETH1/32 Traffic</name>
+<id>7608</id>
+<url>/sensor.htm?id=7608</url>
+<tags>bandwidthsensor snmptrafficsensor</tags>
+<priority>3</priority>
+<fixed>0</fixed>
+<hascomment>1</hascomment><sensortype>SNMP Traffic</sensortype>
+<sensorkind>SNMPTraffic</sensorkind>
+<interval>60</interval>
+<status_raw>3</status_raw>
+<status>Up</status>
+<datamode>0</datamode>
+<lastvalue>402 Mbit/s</lastvalue>
+<lastvalue_raw>50202911.0037</lastvalue_raw>
+<statusmessage>OK</statusmessage>
+<statussince_raw_utc>45374.4135187153</statussince_raw_utc>
+<lasttime_raw_utc>45386.3780979167</lasttime_raw_utc>
+<lastok_raw_utc>45386.3780979167</lastok_raw_utc>
+<lasterror_raw_utc>45310.1519687269</lasterror_raw_utc>
+<lastup_raw_utc>45386.3780979167</lastup_raw_utc>
+<lastdown_raw_utc>45206.5202851852</lastdown_raw_utc>
+<cumulateddowntime_raw>2491.09700038098</cumulateddowntime_raw>
+<cumulateduptime_raw>19594666.0230014</cumulateduptime_raw>
+<cumulatedsince_raw>45156.3170266782</cumulatedsince_raw>
+<active>true</active>
+</sensor>
+</device>
+</nodes></sensortree>
+</prtg>

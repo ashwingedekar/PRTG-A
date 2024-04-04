@@ -1,44 +1,29 @@
-import requests
-import pandas as pd
-from io import StringIO
+import csv
+import xml.etree.ElementTree as ET
 
-api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/historicdata.csv?id=10017&avg=5&sdate=2024-02-09-13-40-00&edate=2024-02-09-13-45-00&username=Ashwin.Gedekar&passhash=1815236212'
+# Path to your XML file
+xml_file_path = "101.100sensorsnmptable.xml"
 
-# Make the API request
-response = requests.get(api_endpoint)
+# Parse the XML file
+tree = ET.parse(xml_file_path)
+root = tree.getroot()
 
-# Check if the request was successful (status code 200)
-if response.status_code == 200:
-    print("Request successful!")
+# Extract objid elements
+objid_list = []
 
-    try:
-        # Use pandas to read the CSV data
-        df = pd.read_csv(StringIO(response.text))
+# Loop through all item elements and extract objid
+for item in root.findall('.//item'):
+    objid_element = item.find('objid')
+    if objid_element is not None:
+        objid = objid_element.text
+        objid_list.append(objid)
 
-        # Clean up the column names (remove leading and trailing spaces)
-        df.columns = df.columns.str.strip()
+# Path to save the CSV file
+csv_file_path = "abcdef.csv"
 
-        # Extract specified columns along with "Date Time"
-        selected_columns = ["Date Time", "Traffic Total (Speed)", "Traffic Total (Speed)(RAW)"]
-        selected_data = df[selected_columns]
-
-        # Convert "Traffic Total (Speed)(RAW)" to numeric type
-        selected_data["Traffic Total (Speed)(RAW)"] = pd.to_numeric(selected_data["Traffic Total (Speed)(RAW)"], errors='coerce')
-
-        # Drop rows with NaN values in "Traffic Total (Speed)(RAW)"
-        selected_data = selected_data.dropna(subset=["Traffic Total (Speed)(RAW)"])
-
-        # Check if the DataFrame is not empty
-        if not selected_data.empty:
-            # Save the selected data to a CSV file
-            output_csv_file = "selected_data.csv"
-            selected_data.to_csv(output_csv_file, index=False)
-            print(f"Selected data has been saved to {output_csv_file}")
-        else:
-            print("No non-NaN values found in 'Traffic Total (Speed)(RAW)'.")
-
-    except Exception as e:
-        print(f"Error processing CSV data: {e}")
-
-else:
-    print(f"Error: {response.status_code} - {response.text}")
+# Write objid values to CSV file
+with open(csv_file_path, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["objid"])  # Write header
+    for objid in objid_list:
+        writer.writerow([objid])

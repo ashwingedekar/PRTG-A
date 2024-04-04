@@ -2,7 +2,7 @@ import csv
 import xml.etree.ElementTree as ET
 
 # Parse the XML file
-tree = ET.parse('output101.xml')
+tree = ET.parse('101.100_cleaned.xml')
 root = tree.getroot()
 
 # Define a list to store sensor ids
@@ -19,7 +19,7 @@ for sensor in root.iter('sensor'):
             sensor_ids.append(sensor_id.text)
 
 # Specify the output CSV file path
-output_csv_file = 'sensor_ids100.csv'
+output_csv_file = '101.100_ids.csv'
 
 # Write the extracted sensor IDs to the CSV file
 with open(output_csv_file, mode='w', newline='') as file:

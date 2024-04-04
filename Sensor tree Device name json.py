@@ -12,7 +12,7 @@ with open("sensor_id.txt", "r") as file:
             id_values[key] = value
 
 # API endpoint template
-api_endpoint_template = 'https://tp-prtg-101-100.comtelindia.com:10443/api/getsensordetails.json?id={}&username=Ashwin.Gedekar&passhash=1132296586'
+api_endpoint_template = 'https://qnq-99-51.comtelindia.com:10443/api/table.xml?content=sensortree&username=prtgadmin&passhash=378387200'
 
 # Create a list to store the data
 data = []
@@ -40,7 +40,7 @@ for key, id_value in id_values.items():
 
 progress_bar.close()
 # Write the data to a CSV file
-with open("outputssss.csv", "w", newline="") as csvfile:
+with open("99_51.csv", "w", newline="") as csvfile:
     csv_writer = csv.writer(csvfile)
     # Write header row
     csv_writer.writerow(["ID", "Device Name"])

@@ -12,8 +12,7 @@
 #
 import requests
 
-
-api_endpoint = 'https://tp-prtg-101-100.comtelindia.com:10443/api/getsensordetails.json?id=8193&username=Ashwin.Gedekar&passhash=440909494'
+api_endpoint = 'https://qnq-99-51.comtelindia.com:10443/api/table.xml?content=sensortree&username=prtgadmin&passhash=378387200'
 
 #3422185132  PRTG-99-102.comtelindia.com
 #tp-prtg-101-100.comtelindia.com:10443
@@ -26,11 +25,11 @@ if response.status_code == 200:
     print("Response:")
     print(response.text)
     
-   # file_path = "prtg-101.100.xml"
-   # if isinstance(response.text, str):
-   #     with open(file_path, "w") as file:
-   #         file.write(response.text)
-  #      print(f"XML data saved to {file_path}")
+    file_path = "prtg-99.51.xml"
+    if isinstance(response.text, str):
+        with open(file_path, "w") as file:
+            file.write(response.text)
+        print(f"XML data saved to {file_path}")
     
     
     

@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 # Parse the XML file
-tree = ET.parse('output101.xml')
+tree = ET.parse('101.100_saturday.xml')
 root = tree.getroot()
 
 # Define a list to store sensor ids

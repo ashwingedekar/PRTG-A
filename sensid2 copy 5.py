@@ -2,7 +2,7 @@ import csv
 import xml.etree.ElementTree as ET
 
 # Parse the XML file
-tree = ET.parse('prtg-101.100.xml')
+tree = ET.parse('101.100_saturday.xml')
 root = tree.getroot()
 
 # Define a dictionary to store device names

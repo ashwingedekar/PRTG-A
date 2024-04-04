@@ -12,7 +12,7 @@
 #
 import requests
 
-api_endpoint = 'https://prtg-99-100.comtelindia.com:10443/api/table.xml?content=sensortree&username=Ashwin.Gedekar&passhash=2480151863'
+api_endpoint = 'https://192.168.99.51:10443/api/table.xml?content=sensortree&username=prtgadmin&passhash=378387200'
 
 #3422185132  PRTG-99-102.comtelindia.com
 #tp-prtg-101-100.comtelindia.com:10443
@@ -25,7 +25,7 @@ if response.status_code == 200:
     print("Response:")
     print(response.text)
     
-    file_path = "prtg-99.100.xml"
+    file_path = "prtg-99.201.xml"
     if isinstance(response.text, str):
         with open(file_path, "w") as file:
             file.write(response.text)

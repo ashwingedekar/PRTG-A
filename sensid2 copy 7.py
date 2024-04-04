@@ -2,8 +2,8 @@ import xml.etree.ElementTree as ET
 import csv
 
 # Path to the XML file
-xml_file = 'prtg-101.100.xml'
-csv_file = 'output.csv'
+xml_file = '101.100_saturday.xml'
+csv_file = '101.100_saturday.csv'
 
 # Parse the XML file
 tree = ET.parse(xml_file)

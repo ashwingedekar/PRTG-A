@@ -1,5 +1,6 @@
 import requests
 
+
 # Read ID values from the file
 id_values = {}
 with open("sensor_id.txt", "r") as file:
@@ -10,7 +11,7 @@ with open("sensor_id.txt", "r") as file:
             id_values[key] = value
 
 # API endpoint template
-api_endpoint_template = 'https://tp-prtg-101-100.comtelindia.com:10443/api/getsensordetails.json?id={}&username=Ashwin.Gedekar&passhash=1132296586'
+api_endpoint_template = 'https://qnq-99-51.comtelindia.com:10443/api/getsensordetails.json?id={}&username=prtgadmin&passhash=378387200'
 
 # Iterate over each ID to make API requests
 for key, id_value in id_values.items():

@@ -2,14 +2,14 @@ import xml.etree.ElementTree as ET
 import csv
 
 # Path to the XML file
-xml_file = 'tabledata.xml'
+xml_file = '101.100sensorsnmptable.xml'
 
 # Parse XML
 tree = ET.parse(xml_file)
 root = tree.getroot()
 
 # Open CSV file for writing
-with open('output111.csv', 'w', newline='') as csvfile:
+with open('101.100_SNMP.csv', 'w', newline='') as csvfile:
     fieldnames = ['objid']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
